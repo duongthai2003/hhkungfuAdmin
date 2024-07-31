@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom';
-import { useIntl } from 'react-intl';
-import { Checkbox, Form, Input } from 'antd';
+import { useNavigate } from "react-router-dom";
+import { useIntl } from "react-intl";
+import { Checkbox, Form, Input } from "antd";
 
-import IntlMessages from '@crema/helpers/IntlMessages';
-import { useAuthMethod } from '@crema/hooks/AuthHooks';
+import IntlMessages from "@crema/helpers/IntlMessages";
+import { useAuthMethod } from "@crema/hooks/AuthHooks";
 import {
   SignInButton,
   StyledRememberMe,
@@ -13,18 +13,18 @@ import {
   StyledSignLink,
   StyledSignLinkTag,
   StyledSignTextGrey,
-} from './index.styled';
+} from "./index.styled";
 
 const SignInJwtAuth = () => {
   const navigate = useNavigate();
   const { signInUser } = useAuthMethod();
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   const onGoToForgetPassword = () => {
-    navigate('/forget-password', { state: 'jwtAuth' });
+    navigate("/forget-password", { state: "jwtAuth" });
   };
 
   function onRememberMe(e) {
@@ -40,8 +40,8 @@ const SignInJwtAuth = () => {
           name="basic"
           initialValues={{
             remember: true,
-            email: '',
-            password: '',
+            email: "thaiq9577@gmail.com",
+            password: "12345678",
           }}
           onFinish={signInUser}
           onFinishFailed={onFinishFailed}
@@ -49,18 +49,18 @@ const SignInJwtAuth = () => {
           <Form.Item
             name="email"
             className="form-field"
-            rules={[{ required: true, message: 'Please input your Email!' }]}
+            rules={[{ required: true, message: "Please input your Email!" }]}
           >
-            <Input placeholder={messages['common.email'] as string} />
+            <Input placeholder={messages["common.email"] as string} />
           </Form.Item>
 
           <Form.Item
             name="password"
             className="form-field"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
+            rules={[{ required: true, message: "Please input your Password!" }]}
           >
             <Input.Password
-              placeholder={(messages['common.password'] as string) || ''}
+              placeholder={(messages["common.password"] as string) || ""}
             />
           </Form.Item>
 
