@@ -1,5 +1,5 @@
-import { AiOutlineEdit } from 'react-icons/ai';
-import { HiOutlineAcademicCap, HiOutlineChartSquareBar } from 'react-icons/hi';
+import { AiOutlineEdit } from "react-icons/ai";
+import { HiOutlineAcademicCap, HiOutlineChartSquareBar } from "react-icons/hi";
 import {
   RiBarChart2Line,
   RiCustomerService2Line,
@@ -7,7 +7,7 @@ import {
   RiFileUploadLine,
   RiShieldUserLine,
   RiTodoLine,
-} from 'react-icons/ri';
+} from "react-icons/ri";
 import {
   BiBookReader,
   BiCarousel,
@@ -16,7 +16,7 @@ import {
   BiErrorCircle,
   BiRss,
   BiTask,
-} from 'react-icons/bi';
+} from "react-icons/bi";
 import {
   MdInvertColors,
   MdOutlineAnalytics,
@@ -25,7 +25,7 @@ import {
   MdOutlineDns,
   MdOutlineManageAccounts,
   MdTimeline,
-} from 'react-icons/md';
+} from "react-icons/md";
 import {
   BsBriefcase,
   BsCalendar,
@@ -33,15 +33,15 @@ import {
   BsChatDots,
   BsCurrencyBitcoin,
   BsQuestionDiamond,
-} from 'react-icons/bs';
-import { FaRegCalendarAlt, FaRegHospital } from 'react-icons/fa';
-import { CgAttachment, CgFeed, CgUserList } from 'react-icons/cg';
-import { FiMail, FiMap, FiUsers } from 'react-icons/fi';
-import { IoMdNotificationsOutline } from 'react-icons/io';
-import { DiHtml5Multimedia } from 'react-icons/di';
-import { RoutePermittedRole } from '@crema/constants/AppEnums';
-import { GrUserAdmin } from 'react-icons/gr';
-import { TbFileInvoice } from 'react-icons/tb';
+} from "react-icons/bs";
+import { FaRegCalendarAlt, FaRegHospital } from "react-icons/fa";
+import { CgAttachment, CgFeed, CgUserList } from "react-icons/cg";
+import { FiMail, FiMap, FiUsers } from "react-icons/fi";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { DiHtml5Multimedia } from "react-icons/di";
+import { RoutePermittedRole } from "@crema/constants/AppEnums";
+import { GrUserAdmin } from "react-icons/gr";
+import { TbFileInvoice } from "react-icons/tb";
 
 const routesConfig = [
   // {
@@ -110,93 +110,93 @@ const routesConfig = [
   //   ],
   // },
   {
-    id: 'apps',
-    title: 'Apps ',
-    messageId: 'sidebar.apps',
-    type: 'group',
+    id: "apps",
+    title: "Apps ",
+    messageId: "sidebar.apps",
+    type: "group",
     children: [
+      // {
+      //   id: "dashboard",
+      //   title: "Dashboard",
+      //   messageId: "sidebar.app.dashboard",
+      //   icon: <MdOutlineAnalytics />,
+      //   url: "/dashboard",
+      // },
       {
-        id: 'dashboard',
-        title: 'Dashboard',
-        messageId: 'sidebar.app.dashboard',
-        icon: <MdOutlineAnalytics />,
-        url: '/dashboard',
-      },
-      {
-        id: 'user-management',
-        title: 'Quản lý người dùng',
-        messageId: 'sidebar.app.userManagement',
+        id: "user-management",
+        title: "Quản lý người dùng",
+        messageId: "sidebar.app.userManagement",
         icon: <BiCartAlt />,
-        type: 'collapse',
+        type: "collapse",
         children: [
           {
-            id: 'user-management-list',
-            title: 'User List',
-            messageId: 'sidebar.app.userManagement.list',
-            url: '/user-management',
+            id: "user-management-list",
+            title: "User List",
+            messageId: "sidebar.app.userManagement.list",
+            url: "/user-management",
           },
           {
-            id: 'user-management-kyc',
-            title: 'User Kyc',
-            messageId: 'sidebar.app.userManagement.kyc',
-            url: '/user-kyc',
+            id: "user-management-kyc",
+            title: "User Kyc",
+            messageId: "sidebar.app.userManagement.kyc",
+            url: "/user-kyc",
           },
         ],
       },
       {
-        id: 'request-management',
-        title: 'Quản lý người dùng',
-        messageId: 'sidebar.app.requestManagement',
+        id: "firms-management",
+        title: "Quản lý người dùng",
+        messageId: "sidebar.app.requestManagement",
         icon: <BiCartAlt />,
-        type: 'collapse',
+        type: "collapse",
         children: [
           {
-            id: 'request-management-list',
-            title: 'Deposit',
-            messageId: 'sidebar.app.requestManagement.list',
-            url: '/request-management',
+            id: "firm-management-list",
+            title: "firms",
+            messageId: "sidebar.app.requestManagement.list",
+            url: "/firms-management",
           },
           {
-            id: 'request-management_payment-gateways',
-            title: 'Payment Gateways',
-            messageId: 'sidebar.app.requestManagement.paymentGateways',
-            url: '/request-management/payment-gateways',
+            id: "request-management_payment-gateways",
+            title: "episode",
+            messageId: "sidebar.app.requestManagement.paymentGateways",
+            url: "/firm-management/episodes",
           },
         ],
       },
-      {
-        id: 'report-management',
-        title: 'Quản lý người dùng',
-        messageId: 'sidebar.app.reportManagement',
-        icon: <BsCalendar />,
-        type: 'collapse',
-        children: [
-          {
-            id: 'adjust-chart',
-            title: 'adjust-chart',
-            messageId: 'sidebar.app.reportManagement.adjust-chart',
-            url: '/report-management/adjust-chart',
-          },
-          {
-            id: 'report-management-list',
-            title: 'tradings',
-            messageId: 'sidebar.app.reportManagement.tradings',
-            url: '/report-management',
-          },
-          {
-            id: 'report-management_statement',
-            title: 'report',
-            messageId: 'sidebar.app.reportManagement.statement',
-            url: '/report-management/statements',
-          },
-          {
-            id: 'report-management_setting',
-            title: 'report',
-            messageId: 'sidebar.app.reportManagement.setting',
-            url: '/report-management/setting',
-          },
-        ],
-      },
+      // {
+      //   id: "favourite-management",
+      //   title: "favourite-management",
+      //   messageId: "sidebar.app.reportManagement",
+      //   icon: <BsCalendar />,
+      //   type: "collapse",
+      //   children: [
+      //     {
+      //       id: "adjust-chart",
+      //       title: "adjust-chart",
+      //       messageId: "sidebar.app.reportManagement.adjust-chart",
+      //       url: "/favourite-management",
+      //     },
+      // {
+      //   id: "report-management-list",
+      //   title: "tradings",
+      //   messageId: "sidebar.app.reportManagement.tradings",
+      //   url: "/report-management",
+      // },
+      // {
+      //   id: "report-management_statement",
+      //   title: "report",
+      //   messageId: "sidebar.app.reportManagement.statement",
+      //   url: "/report-management/statements",
+      // },
+      // {
+      //   id: "report-management_setting",
+      //   title: "report",
+      //   messageId: "sidebar.app.reportManagement.setting",
+      //   url: "/report-management/setting",
+      // },
+      //   ],
+      // },
 
       // {
       //   id: 'mail',

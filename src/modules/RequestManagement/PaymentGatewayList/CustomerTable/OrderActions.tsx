@@ -1,50 +1,68 @@
-import { Button, Dropdown } from 'antd';
-import { DeleteOutlined, EditOutlined, MoreOutlined } from '@ant-design/icons';
-import { useConfirmationContext } from '@components/confirmation';
-import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
-import { deleteDataApi } from '@crema/hooks/APIHooks';
-
+import { Button, Dropdown } from "antd";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  InfoCircleOutlined,
+  MoreOutlined,
+} from "@ant-design/icons";
+import { useState } from "react";
+import { DetailEpisodeModal } from "../detailModal";
+import AddEpisodeModal from "../addfirmmodal";
 const OrderActions = ({ row, refresh, onEdit }: any) => {
-  const confirm = useConfirmationContext();
-  const InfoViewActions = useInfoViewActionsContext();
+  const [open, setOpen] = useState<boolean>(false);
 
-  const handleDeletePaymentGateway = async (id: string) => {
-    // try {
-      await confirm.showConfirm({
-        message: 'Bạn có chắc chắn muốn xóa tài khoản này?',
-      });
-      // delete
-      await deleteDataApi(`payment-gateways/${id}`, InfoViewActions);
-      refresh();
-      InfoViewActions.showMessage('thanh cong');
-    // } catch (err) {
-    //   throw err;
-    // }
+  const [showModaldetail, setShowModaldetail] = useState<boolean>(false);
+
+  const showModal = () => {
+    setOpen(true);
   };
 
   const items = [
     {
       key: 1,
-      label: 'Chỉnh sửa',
-      icon: <EditOutlined />,
-      onClick: onEdit,
+      label: "Chi tiết",
+      icon: <InfoCircleOutlined />,
+      onClick: () => setShowModaldetail(true),
     },
     {
       key: 2,
-      label: 'Xóa',
-      icon: <DeleteOutlined />,
-      onClick: () => handleDeletePaymentGateway(row._id),
+      label: "Chỉnh sửa",
+      icon: <EditOutlined />,
+      onClick: showModal,
     },
   ];
 
+  const handleCancelDetail = () => {
+    setShowModaldetail(false);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
   return (
     <>
-      {' '}
-      <Dropdown menu={{ items }} trigger={['click']}>
+      {" "}
+      <Dropdown menu={{ items }} trigger={["click"]}>
         <Button shape="circle">
           <MoreOutlined />
         </Button>
       </Dropdown>
+      {open && (
+        <AddEpisodeModal
+          open={open}
+          onCancel={handleCancel}
+          row={row}
+          reCallAPI={refresh && refresh}
+          setOpen={setOpen}
+        />
+      )}
+      {showModaldetail && (
+        <DetailEpisodeModal
+          open={showModaldetail}
+          onCancel={handleCancelDetail}
+          row={row && row}
+        />
+      )}
     </>
   );
 };

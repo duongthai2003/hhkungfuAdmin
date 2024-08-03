@@ -1,22 +1,22 @@
-import React from 'react';
-import {RoutePermittedRole} from '@crema/constants/AppEnums';
+import React from "react";
+import { RoutePermittedRole } from "@crema/constants/AppEnums";
 
 const RequestList = React.lazy(
-  () => import('../../../modules/RequestManagement/RequestList'),
+  () => import("../../../modules/RequestManagement/RequestList")
 );
 
 const PaymentGatewayList = React.lazy(
-  () => import('../../../modules/RequestManagement/PaymentGatewayList'),
+  () => import("../../../modules/RequestManagement/PaymentGatewayList")
 );
 export const requestManagementConfig = [
   {
     permittedRole: RoutePermittedRole.User,
-    path: '/request-management',
+    path: "/firms-management",
     element: <RequestList />,
   },
   {
     permittedRole: RoutePermittedRole.User,
-    path: '/request-management/payment-gateways',
+    path: "/firm-management/episodes",
     element: <PaymentGatewayList />,
   },
 ];

@@ -1,22 +1,25 @@
-import { useEffect, useState } from 'react';
-import AppsContainer from '@crema/components/AppsContainer';
-import { useIntl } from 'react-intl';
-import AppsHeader from '@crema/components/AppsContainer/AppsHeader';
-import AppsContent from '@crema/components/AppsContainer/AppsContent';
-import AppInfoView from '@crema/components/AppInfoView';
-import { Input, Modal } from 'antd';
-import AppPageMeta from '@crema/components/AppPageMeta';
+import { useEffect, useState } from "react";
+import AppsContainer from "@crema/components/AppsContainer";
+import { useIntl } from "react-intl";
+import AppsHeader from "@crema/components/AppsContainer/AppsHeader";
+import AppsContent from "@crema/components/AppsContainer/AppsContent";
+import AppInfoView from "@crema/components/AppInfoView";
+import { Button, Flex, Input, Modal, Space } from "antd";
+import AppPageMeta from "@crema/components/AppPageMeta";
 import {
   StyledCustomerHeader,
   StyledCustomerHeaderPagination,
   StyledCustomerHeaderRight,
   StyledCustomerInputView,
-} from './index.styled';
-import { useGetDataApi } from '@crema/hooks/APIHooks';
-import CustomerTable from './CustomerTable';
-import EditCustomer from './EditCustomer';
+} from "./index.styled";
+import { useGetDataApi } from "@crema/hooks/APIHooks";
+import CustomerTable from "./CustomerTable";
+import EditCustomer from "./EditCustomer";
 
-import type { CustomersDataType } from '@crema/types/models/ecommerce/EcommerceApp';
+import type { CustomersDataType } from "@crema/types/models/ecommerce/EcommerceApp";
+import { PlusOutlined } from "@ant-design/icons";
+import UpdateModal from "./CustomerTable/Updatemodal";
+
 // import { start } from 'repl';
 
 type OrderProps = {
@@ -27,12 +30,13 @@ type OrderProps = {
 const Customers = () => {
   const [page, setPage] = useState<number>(1);
   const [startData, setstartData] = useState<number>(0);
-  const [search, setSearchQuery] = useState('');
+  const [search, setSearchQuery] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState<any>(false);
 
   const { messages } = useIntl();
   const [{ apiData, loading }, { setQueryParams, reCallAPI }] =
-    useGetDataApi<OrderProps>('/user-requests', undefined, {}, false);
+    useGetDataApi<OrderProps>("/movies", undefined, {}, false);
   // params for request
   useEffect(() => {
     setQueryParams({ start: startData, limit: 10 });
@@ -56,25 +60,45 @@ const Customers = () => {
     setIsModalVisible(false);
   };
 
+  const handleShowAddModal = () => {
+    if (openAddModal) {
+      setOpenAddModal(false);
+    } else {
+      setOpenAddModal(true);
+    }
+  };
+  console.log("hhhhhh", openAddModal);
+
   return (
     <>
       <AppPageMeta title="Customers" />
 
-      <AppsContainer
-        title={'Quản lý yêu cầu của người dùng'}
-        fullView
-        type="bottom"
-      >
-        <AppsHeader key={'wrap'}>
+      <AppsContainer title={"Quản lý danh sách phim"} fullView type="bottom">
+        <AppsHeader key={"wrap"}>
           <StyledCustomerHeader>
-            <StyledCustomerInputView>
-              <Input
-                id="user-name"
-                placeholder="Search"
-                type="search"
-                onChange={onSearchOrder}
-              />
-            </StyledCustomerInputView>
+            <Flex gap={10}>
+              <StyledCustomerInputView>
+                <Input
+                  id="user-name"
+                  placeholder="Search"
+                  type="search"
+                  onChange={onSearchOrder}
+                />
+              </StyledCustomerInputView>
+              <Space size={10} direction="horizontal" />
+              <Button icon={<PlusOutlined />} onClick={handleShowAddModal}>
+                Thêm mới
+              </Button>
+              {openAddModal && (
+                <UpdateModal
+                  open={openAddModal}
+                  onCancel={handleShowAddModal}
+                  setOpen={setOpenAddModal}
+                  reCallAPI={reCallAPI}
+                />
+              )}
+            </Flex>
+
             <StyledCustomerHeaderRight>
               {/* ////////////  panigation */}
 
@@ -90,7 +114,7 @@ const Customers = () => {
 
         {apiData?.items && (
           <AppsContent
-            key={'wrap1'}
+            key={"wrap1"}
             style={{
               paddingTop: 10,
               paddingBottom: 10,
@@ -114,7 +138,7 @@ const Customers = () => {
       </AppsContainer>
 
       <Modal
-        title={messages['ecommerce.addCustomer'] as string}
+        title={messages["ecommerce.addCustomer"] as string}
         open={isModalVisible}
         onOk={handleOk}
         footer={false}

@@ -480,9 +480,9 @@
   "sidebar.app.userManagement.list": "Danh sách người dùng",
   "sidebar.app.userManagement.kyc": "Kyc",
 
-  "sidebar.app.requestManagement": "Quản lý nạp/rút tiền",
-  "sidebar.app.requestManagement.list": "Danh sách yêu cầu",
-  "sidebar.app.requestManagement.paymentGateways": "Danh sách tài khoản nhận tiền",
+  "sidebar.app.requestManagement": "Quản lý phim",
+  "sidebar.app.requestManagement.list": "Danh sách phim",
+  "sidebar.app.requestManagement.paymentGateways": "Danh sách tập phim",
 
   "sidebar.app.reportManagement": "Quản lý giao dịch",
   "sidebar.app.reportManagement.adjust-chart": "Điều chỉnh biểu đồ",
