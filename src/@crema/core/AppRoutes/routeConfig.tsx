@@ -135,12 +135,12 @@ const routesConfig = [
             messageId: "sidebar.app.userManagement.list",
             url: "/user-management",
           },
-          {
-            id: "user-management-kyc",
-            title: "User Kyc",
-            messageId: "sidebar.app.userManagement.kyc",
-            url: "/user-kyc",
-          },
+          // {
+          //   id: "user-management-kyc",
+          //   title: "User Kyc",
+          //   messageId: "sidebar.app.userManagement.kyc",
+          //   url: "/user-kyc",
+          // },
         ],
       },
       {

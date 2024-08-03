@@ -7,6 +7,7 @@ import AppInfoView from "@crema/components/AppInfoView";
 import { Button, Flex, Input, Modal, Space } from "antd";
 import AppPageMeta from "@crema/components/AppPageMeta";
 import {
+  StyledCustomerFooterPagination,
   StyledCustomerHeader,
   StyledCustomerHeaderPagination,
   StyledCustomerHeaderRight,
@@ -128,13 +129,13 @@ const Customers = () => {
           </AppsContent>
         )}
 
-        {/* <StyledCustomerFooterPagination
-          key={'wrap2'}
-          pageSize={10}
+        <StyledCustomerFooterPagination
+          key={"wrap2"}
+          pageSize={apiData?.limit || 10}
           count={apiData?.total || 0}
           page={page}
           onChange={onChange}
-        /> */}
+        />
       </AppsContainer>
 
       <Modal

@@ -154,12 +154,12 @@ const Customers = () => {
             </Flex>
 
             <StyledCustomerHeaderRight>
-              {/* <StyledCustomerHeaderPagination
+              <StyledCustomerHeaderPagination
                 pageSize={10}
-                count={apiData?.customerCount || 0}
+                count={episodeOfMovie?.items.length || 0}
                 page={page}
                 onChange={onChange}
-              /> */}
+              />
             </StyledCustomerHeaderRight>
           </StyledCustomerHeader>
         </AppsHeader>
@@ -199,13 +199,13 @@ const Customers = () => {
           </AppsContent>
         )}
 
-        {/* <StyledCustomerFooterPagination
+        <StyledCustomerFooterPagination
           key={"wrap2"}
           pageSize={10}
-          count={apiData?.customerCount || 0}
+          count={episodeOfMovie?.items.length || 0}
           page={page}
           onChange={onChange}
-        /> */}
+        />
       </AppsContainer>
 
       {showAddEpisodeModal && (

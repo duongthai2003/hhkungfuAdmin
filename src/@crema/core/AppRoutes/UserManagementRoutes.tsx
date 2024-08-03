@@ -1,19 +1,19 @@
-import React from 'react';
-import { RoutePermittedRole } from '@crema/constants/AppEnums';
+import React from "react";
+import { RoutePermittedRole } from "@crema/constants/AppEnums";
 
 const UserList = React.lazy(
-  () => import('../../../modules/UserManagement/List'),
+  () => import("../../../modules/UserManagement/List")
 );
-const UserKyc = React.lazy(() => import('../../../modules/UserManagement/Kyc'));
+// const UserKyc = React.lazy(() => import('../../../modules/UserManagement/Kyc'));
 export const userManagementConfig = [
   {
     permittedRole: RoutePermittedRole.User,
-    path: '/user-management',
+    path: "/user-management",
     element: <UserList />,
   },
-  {
-    permittedRole: RoutePermittedRole.User,
-    path: '/user-kyc',
-    element: <UserKyc />,
-  },
+  // {
+  //   permittedRole: RoutePermittedRole.User,
+  //   path: '/user-kyc',
+  //   element: <UserKyc />,
+  // },
 ];
